@@ -7,6 +7,12 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.title {
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .app {
   display: flex;
   align-items: center;
