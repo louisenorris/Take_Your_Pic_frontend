@@ -51,7 +51,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* opacity: 0; */
   animation: 8s fade-in 3s cubic-bezier(0.44, 0.34, 0.82, 0.46) forwards;
   filter: contrast(200%);
   border: solid grey 1px;
