@@ -42,7 +42,7 @@
 
 .photo {
   position: relative;
-  background-color: blue;
+  background-color: transparent;
   color: aliceblue;
   height: 9rem;
   width: 6.6rem;
@@ -51,13 +51,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* opacity: 0; */
+  animation: 8s fade-in 3s cubic-bezier(0.44, 0.34, 0.82, 0.46) forwards;
+  filter: contrast(200%);
+  border: solid grey 1px;
+  border-radius: 0 0 1px 1px;
 }
 
 .photo-message {
-  background-color: blue;
+  background-color: transparent;
   color: aliceblue;
   text-align: center;
-  /* height: 100%; */
+  font-size: 26px;
 }
 
 .navbar_container {
@@ -87,4 +92,13 @@
 
 .user_form input {
     margin: 0.15rem;
+}
+
+@keyframes fade-in {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: blue;
+  }
 }
