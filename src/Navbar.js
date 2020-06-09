@@ -8,9 +8,12 @@ const Navbar = ({ user, signUp, logIn, logOut }) => {
             {
                 user && !user.error ? <div><button onClick={logOut}>Log out</button></div> :
                     <>
-                        <Signup submit={signUp} header={'Sign up'} />
-                        or
-                        <Login submit={logIn} header={'Log in'} />
+                        <div className="navbar_subcontainer">
+                            <Login submit={logIn} header={'Log in'} />
+                        </div>
+                        <div className="navbar_subcontainer">
+                            <Signup submit={signUp} header={'Sign up'} />
+                        </div>
                     </>
             }
         </nav>

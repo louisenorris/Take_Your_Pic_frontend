@@ -6,7 +6,7 @@ const Login = ({ submit, header }) => {
     const [password, setPassword] = useState('')
     
     return (
-        <form onSubmit={e => {
+        <form className="user_form" onSubmit={e => {
             e.preventDefault();
             submit({ email, password })
             setEmail('')

@@ -10,7 +10,13 @@ const EnterApp = (props) => {
             <div className="photo-frame" onClick={() => props.handleLoginSignupClicked()}>
               <div className="photo">
                 <span className="photo-message">
-                  Click to enter
+                  Take
+                </span>
+                <span className="photo-message">
+                  Your
+                </span>
+                <span className="photo-message">
+                  Pic
                 </span>
               </div>
             </div>

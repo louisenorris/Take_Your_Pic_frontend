@@ -17,11 +17,18 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+}
+
+.app_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
 }
 
 .photo-frame {
-  position: absolute;
+  position: relative;
   height: 12rem;
   width: 7.7rem;
   background-color: white;
@@ -40,11 +47,44 @@
   height: 9rem;
   width: 6.6rem;
   bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .photo-message {
   background-color: blue;
   color: aliceblue;
   text-align: center;
-  height: 9rem;
+  /* height: 100%; */
+}
+
+.navbar_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navbar_subcontainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.user_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+.user_form input {
+    margin: 0.15rem;
 }
