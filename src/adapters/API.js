@@ -4,8 +4,6 @@ const loginURL = `${endpoint}/login`
 const validateURL = `${endpoint}/validate`
 
 const jsonify = res => {
-    debugger
-    console.log(res)
     if (res.ok)
         return res.json()
     else
@@ -13,14 +11,13 @@ const jsonify = res => {
 }
 
 const handleServerError = response => {
+    console.error(response)
     throw response
 }
 
 const saveToken = data => {
-    // debugger
     localStorage.setItem('token', data.token)
     return data.user
-    // debugger
 }
 
 const constructHeaders = (moreHeaders = {}) => (
@@ -35,50 +32,49 @@ const signUp = (user) => fetch(signupURL, {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({user})
+    body: JSON.stringify({ user })
 }).then(jsonify)
-.then(saveToken)
-.catch(handleServerError)
+    .then(saveToken)
+    .catch(handleServerError)
 
 const logIn = (user) => fetch(loginURL, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({user})
+    body: JSON.stringify({ user })
 }).then(jsonify)
-.then(saveToken)
-.catch(handleServerError)
+    .then(saveToken)
+    .catch(handleServerError)
 
-const updateUser = (user) => {
-   return fetch(signupURL + `/${user.id}`, {
-    method: 'PATCH',
-    headers: constructHeaders({
-        'Content-Type': 'application/json'
-    }),
-    body: JSON.stringify({user})
-}).then(jsonify)
-.catch(handleServerError)
-}
+// const updateUser = (user) => {
+//    return fetch(signupURL + `/${user.id}`, {
+//     method: 'PATCH',
+//     headers: constructHeaders({
+//         'Content-Type': 'application/json'
+//     }),
+//     body: JSON.stringify({user})
+// }).then(jsonify)
+// .catch(handleServerError)
+// }
 
-const deleteUser = id => {
-  return fetch(signupURL + `/${id}`, {
-    method: "DELETE",
-    headers: constructHeaders({
-        'Content-Type': 'application/json'
-    }),
-  });
-}
+// const deleteUser = id => {
+//   return fetch(signupURL + `/${id}`, {
+//     method: "DELETE",
+//     headers: constructHeaders({
+//         'Content-Type': 'application/json'
+//     }),
+//   });
+// }
 
 const validateUser = () => {
-    debugger
-    if (!localStorage.getItem('token')) return Promise.resolve({error: 'no token'})
+    if (!localStorage.getItem('token')) return Promise.resolve({ error: 'no token' })
 
     return fetch(validateURL, {
         headers: constructHeaders()
     }).then(jsonify)
-    .then(saveToken)
-    .catch(handleServerError)
+        .then(saveToken)
+        .catch(handleServerError)
 }
 
 const clearToken = () => localStorage.removeItem('token')
@@ -89,7 +85,7 @@ export default {
     signUp,
     logIn,
     validateUser,
-    clearToken,
-    updateUser,
-    deleteUser
+    clearToken
+    // updateUser,
+    // deleteUser
 }

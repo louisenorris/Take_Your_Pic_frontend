@@ -1,43 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react'
 
+const Signup = ({ submit, header }) => {
 
-class Signup extends React.Component {
-
-    state = {
-        username: "",
-        email: "",
-        password: ""
-    }
-
-    handleChangeUsername = (event) => {
-        this.setState({username: event.target.value})
-    }
-
-    handleChangeEmail = (event) => {
-        this.setState({email: event.target.value})
-    }
-
-    handleChangePassword = (event) => {
-        this.setState({password: event.target.value})
-    }
-
-
-    render() {
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    
     return (
-     <>
-        <form onSubmit={() => this.props.handleSignup(this.state)}>
-            <br/>
-            <input className="loginSignup" value={this.state.username} onChange={this.handleChangeUsername} placeholder='Username' />
-            <br/>
-            <input className="loginSignup" value={this.state.email} onChange={this.handleChangeEmail} type="email" placeholder='Email' />
-            <br/>
-            <input className="loginSignup" value={this.state.password} onChange={this.handleChangePassword} type='password' placeholder='Password' />
-            <br/>
-            <button type='submit'>Sign up</button>
+        <form onSubmit={e => {
+            e.preventDefault();
+            submit({ email, password })
+            setEmail('')
+            setPassword('')
+        }}>
+            <span>{header}</span>
+            <input placeholder="Username" name="username" value={username} onChange={e => setUsername(e.target.value)} />
+            <input placeholder="Email" type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} />
+            <input placeholder="Password" type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+            <input type="submit" />
         </form>
-     </>
-    );
-    }
-};
+    )
+}
 
 export default Signup;
