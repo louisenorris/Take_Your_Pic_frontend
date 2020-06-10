@@ -1,4 +1,6 @@
 import React from "react";
+import PhotoCard from './PhotoCard.js';
+
 
 class PhotoGalleryContainer extends React.Component {
 
@@ -6,9 +8,15 @@ class PhotoGalleryContainer extends React.Component {
 	render() {
 		return (
 			<div>
-				 {/* <button onClick={() => this.props.logOut()}>Log out</button> */}
 				<div>
 					<h1>Photo gallery here</h1>
+					{ this.props.polaroids ?
+                    this.props.polaroids.map(polaroid => <PhotoCard 
+                                                    key={polaroid.id} 
+                                                    polaroid={polaroid} 
+                                                />)
+                    : null
+                }
 				</div>
 			</div>
 		);

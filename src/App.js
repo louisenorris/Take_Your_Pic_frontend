@@ -11,13 +11,19 @@ import PhotoGalleryContainer from './PhotoGalleryContainer';
 class App extends React.Component {
 
   state = {
-    user: undefined
+    user: undefined,
+    polaroids: null
   }
 
   componentDidMount() {
     API.validateUser()
     .then(user => {
       this.setState({user})
+    })
+
+    API.getPolaroids()
+    .then(polaroids => {
+      this.setState({polaroids})
     })
   }
 
@@ -77,7 +83,7 @@ render() {
       </div>
         {
           this.state.user && !this.state.user.error && 
-          <PhotoGalleryContainer user={this.state.user} />
+          <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} />
         }
       {/* <Route exact path="/login" component={(props) => <Login {...props} handleLogin={this.logIn} />}/>
       <Route exact path="/signup" component={(props) => <Signup {...props} handleSignup={this.signUp} />}/>  */}
