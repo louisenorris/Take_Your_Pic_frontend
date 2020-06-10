@@ -274,26 +274,26 @@
   position: relative;
   height: 12rem;
   width: 7.7rem;
-  background-color: white;
+  background-color:green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 1;
-  opacity: 0; 
+  opacity: 1; 
   border-radius: 0 0 5px 5px;
 }
 
 .photo {
-  opacity: 0;
+  opacity: 1;
   position: relative;
   height: 9rem;
   width: 6.6rem;
   bottom: 12px;
 }
 
-.player {   
-  opacity: 0;
+#player {   
+  opacity: 1;
 }
 
 /* filter css */
