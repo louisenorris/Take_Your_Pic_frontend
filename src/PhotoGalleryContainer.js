@@ -9,7 +9,7 @@ class PhotoGalleryContainer extends React.Component {
 		return (
 			<div>
 				<div>
-					<h1>Photo gallery here</h1>
+					<h1>Polaroid gallery</h1>
 					{ this.props.polaroids ?
                     this.props.polaroids.map(polaroid => <PhotoCard 
                                                     key={polaroid.id} 

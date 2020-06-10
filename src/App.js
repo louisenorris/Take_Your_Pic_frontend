@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import EnterApp from './EnterApp';
+// import EnterApp from './EnterApp';
 import Navbar from './Navbar';
+import Camera from './Camera';
 // import Login from './Login';
 // import Signup from './Signup';
 import API from './adapters/API';
 import PhotoGalleryContainer from './PhotoGalleryContainer';
-// import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Switch } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -76,22 +77,23 @@ logOut = () => {
 
 render() {
   return (
-    <div className="app_container">
-      <EnterApp />
+    <div className="app">
+      {/* <EnterApp /> */}
       <div className="navbar_container">
         <Navbar user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} />
       </div>
         {
           this.state.user && !this.state.user.error && 
-          <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} />
+            <Switch>
+              <Route exact path="/" component={(props) => <PhotoGalleryContainer {...props} user={this.state.user} polaroids={this.state.polaroids}/>}/> 
+              <Route exact path="/camera" component={(props) => <Camera {...props} user={this.state.user} />}/> 
+            </Switch>
         }
-      {/* <Route exact path="/login" component={(props) => <Login {...props} handleLogin={this.logIn} />}/>
-      <Route exact path="/signup" component={(props) => <Signup {...props} handleSignup={this.signUp} />}/>  */}
     </div>
   );
 }
 
 }
 
-// export default withRouter(App);
-export default App;
+export default withRouter(App);
+// export default App;

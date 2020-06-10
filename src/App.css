@@ -27,6 +27,17 @@
   margin: 1rem;
 }
 
+.user_active {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  min-height: 3rem;
+  background-color: tomato;
+  width: 100%;
+  /* margin: 1rem; */
+}
+
 .photo-frame {
   position: relative;
   height: 12rem;
