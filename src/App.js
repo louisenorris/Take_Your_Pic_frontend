@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.css';
-// import EnterApp from './EnterApp';
 import Navbar from './Navbar';
 import Camera from './Camera';
-// import Login from './Login';
-// import Signup from './Signup';
 import API from './adapters/API';
 import PhotoGalleryContainer from './PhotoGalleryContainer';
 import { Route, withRouter, Switch } from "react-router-dom";
@@ -78,7 +75,6 @@ logOut = () => {
 render() {
   return (
     <div className="app">
-      {/* <EnterApp /> */}
       <div className="navbar_container">
         <Navbar user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} />
       </div>

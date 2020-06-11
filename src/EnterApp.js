@@ -6,7 +6,17 @@ const EnterApp = (props) => {
 
         return (
           <div className="app">
-            <div className="logo-photo-frame" onClick={() => props.handleLoginSignupClicked()}>
+            {
+              props.user && !props.user.error ?
+                <div className="logo-photo-frame-user_active" >
+                <div className="logo-photo-user_active">
+                  <span className="photo-message-user_active">
+                    Take Your Pic
+                  </span>
+                </div>
+              </div>
+              :
+              <div className="logo-photo-frame" >
               <div className="logo-photo">
                 <span className="photo-message">
                   Take
@@ -19,8 +29,9 @@ const EnterApp = (props) => {
                 </span>
               </div>
             </div>
-          </div>
 
+            }
+          </div>
         );
 
 }

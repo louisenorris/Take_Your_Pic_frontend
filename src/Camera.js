@@ -32,11 +32,9 @@ class Camera extends React.Component {
     // }
 
     showPhoto = () => {
-        debugger
         this.photoFrame.current.classList.add('show');
         this.canvas.current.classList.add('fade-in');
         // filterPhotoInstructions.innerText = 'Watch your polaroid develop, then re-take or save.';
-        this.cameraBtnArrow.current.classList.add('hide');
     }
       
     componentDidMount() {
@@ -50,11 +48,13 @@ class Camera extends React.Component {
         const context = this.canvas.current.getContext('2d');
         console.log(context)
         context.drawImage(this.video.current, 0, 0, 1440, 780);
-        // Stop all video streams.
-        this.video.current.srcObject.getVideoTracks().forEach(track => track.stop());
         this.showPhoto()
     }
     
+    // componentWillUnmount = () => {
+    //     // Stop all video streams.
+    //     this.video.current.srcObject.getVideoTracks().forEach(track => track.stop());
+    // }
     
     render() {
         return (
@@ -81,7 +81,7 @@ class Camera extends React.Component {
                 <div className="camera">
                     <div className="camera__button_container">
                         <div className="camera__button" onClick={() => this.handleShowPhoto()}></div>
-                        <div className="arrow__take_pic" ref={this.cameraBtnArrow} ></div>
+                        <div className="arrow__take_pic" ></div>
                     </div>
                     <div className="camera__lens">
                         <div className="lens__ring_1">

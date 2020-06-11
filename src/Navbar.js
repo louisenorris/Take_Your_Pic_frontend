@@ -16,9 +16,9 @@ class Navbar extends Component {
 
         return (
             <nav className={className}>
-                <EnterApp />
+                <EnterApp user={this.props.user} />
                 {
-                    this.props.user && !this.props.user.error ? <div>
+                    this.props.user && !this.props.user.error ? <div className="nav_links-container">
                                             <button onClick={this.props.logOut}>Log out</button>
                                             <NavLink exact to="/camera">Camera</NavLink>
                                         </div> :
