@@ -236,6 +236,25 @@
   transform: translateY(-12rem);
 }
 
+.camera-filter-options__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.options_btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 15rem;
+}
+
+.options_btn-container button {
+  margin: 1rem;
+  width: 4rem;
+}
+
 /* lens */
 
 .camera__lens {
@@ -370,18 +389,19 @@
 }
 
 .player {   
-  opacity: 0;
+  opacity: 1;
 }
 
 /* filter css */
 
 .filter_instructions {
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 15px;
 }
 
 .container__filters {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;

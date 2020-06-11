@@ -59,54 +59,60 @@ class Camera extends React.Component {
     render() {
         return (
             <>
-            {/* <div className="filter__div">
-                <p className="filter_instructions">Fancy adding a filter? Just click to select then take your photo.</p>
-                <div className="container__filters">
-                    <div className="filter__sepia">
-                        <span>SEPIA</span>
-                    </div>
-                    <div className="filter__gray_scale">
-                        <span>CHROME</span>
-                    </div>
-                    <div className="filter__hue_rotate">
-                        <span>ALIEN</span>
-                    </div>
-                    <div className="filter__chilling">
-                        <span>INVERSE</span>
+            <div className="camera-filter-options__container">
+                <div className="filter__div">
+                    <p className="filter_instructions">Filters</p>
+                    <div className="container__filters">
+                        <div className="filter__sepia">
+                            <span>SEPIA</span>
+                        </div>
+                        <div className="filter__gray_scale">
+                            <span>CHROME</span>
+                        </div>
+                        <div className="filter__hue_rotate">
+                            <span>ALIEN</span>
+                        </div>
+                        <div className="filter__chilling">
+                            <span>INVERSE</span>
+                        </div>
                     </div>
                 </div>
-            </div> */}
-
-            <div className="camera__container">
-                <div className="camera">
-                    <div className="camera__button_container">
-                        <div className="camera__button" onClick={() => this.handleShowPhoto()}></div>
-                        <div className="arrow__take_pic" ></div>
-                    </div>
-                    <div className="camera__lens">
-                        <div className="lens__ring_1">
-                            <div className="lens__ring_2">
-                                <div className="lens__ring_3">
-                                    <div className="lens__ring_4">
-                                        <div className="lens__ring_5">
-                                            <div className="lens__ring_6">
-                                                <div className="lens__ring_7"></div>
+                <div className="camera__container">
+                    <div className="camera">
+                        <div className="camera__button_container">
+                            <div className="camera__button" onClick={() => this.handleShowPhoto()}></div>
+                            <div className="arrow__take_pic" ></div>
+                        </div>
+                        <div className="camera__lens">
+                            <div className="lens__ring_1">
+                                <div className="lens__ring_2">
+                                    <div className="lens__ring_3">
+                                        <div className="lens__ring_4">
+                                            <div className="lens__ring_5">
+                                                <div className="lens__ring_6">
+                                                    <div className="lens__ring_7"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="camera__view-finder"></div>
                     </div>
-                    <div className="camera__view-finder"></div>
-                </div>
 
-                <div className="photo-frame" ref={this.photoFrame}>
-                    <canvas className="photo" ref={this.canvas} height="768" width="1024"></canvas>
-                </div>
+                    <div className="photo-frame" ref={this.photoFrame}>
+                        <canvas className="photo" ref={this.canvas} height="768" width="1024"></canvas>
+                    </div>
 
-                <div className="camera__bottom"></div>
+                    <div className="camera__bottom"></div>
+                </div>
+                    <div className="options_btn-container">
+                        <button>Retake</button>
+                        <button>Save</button>
+                    </div>
             </div>
+
             <video className="player" ref={this.video} autoPlay></video>
             </> 
         )
