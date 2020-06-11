@@ -33,7 +33,7 @@
   justify-content: space-between;
   flex-direction: row;
   min-height: 3rem;
-  background-color: grey;
+  background-color: transparent;
   width: 100%;
   /* margin: 1rem; */
 }
@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid black;
+  border: solid grey 2px;
   border-radius: 0 0 5px 5px;
   margin: 1rem;
 }
@@ -87,17 +87,32 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: solid black;
+  border: solid grey 2px;
   border-radius: 0 5px 5px 0;
   margin: 0.25rem;
 }
 
 .logo-photo-user_active {
-
+  position: relative;
+  background-color: transparent;
+  height: 2.7rem;
+  width: 4.2rem;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: 8s fade-in-color 3s cubic-bezier(0.44, 0.34, 0.82, 0.46) forwards;
+  filter: contrast(200%);
+  border: solid grey 1px;
+  border-radius: 0 0 1px 1px;
 }
 
 .photo-message-user_active {
-  color: orange;
+  color: white;
+  background-color: transparent;
+  text-align: center;
+  font-size: 9px;
 }
 
 /* nav css */
@@ -468,7 +483,7 @@
     background-color: transparent;
   }
   to {
-    background-color: blue;
+    background-color: grey;
   }
 }
 
