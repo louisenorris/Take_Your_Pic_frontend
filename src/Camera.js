@@ -1,18 +1,10 @@
 import React from 'react';
 import './App.css';
-// const supported = 'mediaDevices' in navigator;
-// const videoPlayer = document.getElementById("player")
-// const canvas = this.refs.canvas
-// const context = canvas.getContext("2d")
 
-// const photoFrame = document.querySelector('.photo-frame');
-// const canvas = document.querySelector('.photo');
-// const context = canvas.getContext('2d');
 // const filterContainer = document.querySelector('.filter__div');
 // const filterPhotoInstructions = document.querySelector('.filter_instructions');
 // const filterBtns = document.querySelectorAll('.container__filters div');
 // const filterBtnsArr = Array.from(filterBtns);
-// const cameraBtnArrow = document.querySelector('.arrow__take_pic');
 
 
 class Camera extends React.Component {
@@ -20,6 +12,8 @@ class Camera extends React.Component {
         super(props);
         this.canvas = React.createRef();
         this.video = React.createRef();
+        this.cameraBtnArrow = React.createRef();
+        this.photoFrame = React.createRef();
       }
 
     state = {
@@ -37,12 +31,13 @@ class Camera extends React.Component {
     //   };
     // }
 
-    // showPhoto = () => {
-    //     photoFrame.classList.add('show');
-    //     photo.classList.add('fade-in');
-    //     filterPhotoInstructions.innerText = 'Watch your polaroid develop, then re-take or save.';
-    //     cameraBtnArrow.classList.add('hide');
-    // }
+    showPhoto = () => {
+        debugger
+        this.photoFrame.current.classList.add('show');
+        this.canvas.current.classList.add('fade-in');
+        // filterPhotoInstructions.innerText = 'Watch your polaroid develop, then re-take or save.';
+        this.cameraBtnArrow.current.classList.add('hide');
+    }
       
     componentDidMount() {
         // Attach the video stream to the video element and autoPlay.
@@ -52,15 +47,12 @@ class Camera extends React.Component {
     }
     
     handleShowPhoto = () => {
-        // debugger
         const context = this.canvas.current.getContext('2d');
         console.log(context)
-        // debugger
         context.drawImage(this.video.current, 0, 0, 1440, 780);
-    // debugger
         // Stop all video streams.
         this.video.current.srcObject.getVideoTracks().forEach(track => track.stop());
-        // showPhoto()
+        this.showPhoto()
     }
     
     
@@ -85,11 +77,11 @@ class Camera extends React.Component {
                 </div>
             </div> */}
 
-            <div className="container">
+            <div className="camera__container">
                 <div className="camera">
                     <div className="camera__button_container">
                         <div className="camera__button" onClick={() => this.handleShowPhoto()}></div>
-                        <div className="arrow__take_pic"></div>
+                        <div className="arrow__take_pic" ref={this.cameraBtnArrow} ></div>
                     </div>
                     <div className="camera__lens">
                         <div className="lens__ring_1">
@@ -109,7 +101,7 @@ class Camera extends React.Component {
                     <div className="camera__view-finder"></div>
                 </div>
 
-                <div className="photo-frame">
+                <div className="photo-frame" ref={this.photoFrame}>
                     <canvas className="photo" ref={this.canvas} height="768" width="1024"></canvas>
                 </div>
 
