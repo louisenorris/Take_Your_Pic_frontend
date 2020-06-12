@@ -10,7 +10,7 @@ class App extends React.Component {
 
   state = {
     user: undefined,
-    polaroids: null
+    polaroids: []
   }
 
   componentDidMount() {
@@ -40,6 +40,11 @@ logIn = user => {
 logOut = () => {
   API.clearToken()
   this.setState({ user: undefined })
+}
+
+handlePhotoSave = (photo) => {
+  API.createPolaroid(photo)
+  debugger
 }
 
 // updateUser = (event, user) => {
@@ -82,7 +87,7 @@ render() {
           this.state.user && !this.state.user.error && 
             <Switch>
               <Route exact path="/" component={(props) => <PhotoGalleryContainer {...props} user={this.state.user} polaroids={this.state.polaroids}/>}/> 
-              <Route exact path="/camera" component={(props) => <Camera {...props} user={this.state.user} />}/> 
+              <Route exact path="/camera" component={(props) => <Camera {...props} user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>}/> 
             </Switch>
         }
     </div>

@@ -17,6 +17,7 @@ class Camera extends React.Component {
       }
 
     state = {
+        photo: ""
         // chosen_filter: "",
     }
 
@@ -48,6 +49,19 @@ class Camera extends React.Component {
         const context = this.canvas.current.getContext('2d');
         console.log(context)
         context.drawImage(this.video.current, 0, 0, 1440, 780);
+        let image = this.canvas.current.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        let imgSplit = image.split(",")[1]
+        this.setState({
+                    photo: imgSplit
+                })
+        // this.canvas.current.toBlob(function(blob) {
+        //     let url = URL.createObjectURL(blob)
+        //     this.setState({
+        //         photo: url
+        //     })
+        // });
+        //     blob => onCapture(blob), "image/jpeg", 1);
+        // console.log(this.canvas.current.toBlob(blob => onCapture(blob), "image/jpeg", 1))
         this.showPhoto()
     }
     
@@ -109,7 +123,7 @@ class Camera extends React.Component {
                 </div>
                     <div className="options_btn-container">
                         <button>Retake</button>
-                        <button>Save</button>
+                        <button onClick={() => this.props.handlePhotoSave(this.state.photo)} >Save</button>
                     </div>
             </div>
 

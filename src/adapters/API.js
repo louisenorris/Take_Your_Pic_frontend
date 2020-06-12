@@ -82,6 +82,17 @@ const clearToken = () => localStorage.removeItem('token')
 
 const getPolaroids = () => fetch(polaroidsUrl).then(jsonify)
 
+const createPolaroid = (polaroid) => {
+    return fetch(polaroidsUrl, {
+     method: 'POST',
+     headers: constructHeaders({
+         'Content-Type': 'application/json'
+     }),
+     body: JSON.stringify({ polaroid })
+ }).then(jsonify) 
+ .catch(handleServerError)
+ }
+
 
 
 export default {
@@ -89,7 +100,8 @@ export default {
     logIn,
     validateUser,
     clearToken,
-    getPolaroids
+    getPolaroids,
+    createPolaroid
     // updateUser,
     // deleteUser
 }
