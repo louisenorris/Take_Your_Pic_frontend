@@ -49,7 +49,7 @@ class Camera extends React.Component {
         const context = this.canvas.current.getContext('2d');
         console.log(context)
         context.drawImage(this.video.current, 0, 0, 1440, 780);
-        let image = this.canvas.current.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        let image = this.canvas.current.toDataURL("image/png");
         let imgSplit = image.split(",")[1]
         this.setState({
                     photo: imgSplit

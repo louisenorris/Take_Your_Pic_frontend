@@ -43,8 +43,14 @@ logOut = () => {
 }
 
 handlePhotoSave = (photo) => {
-  API.createPolaroid(photo)
-  debugger
+  API.createPolaroid(photo, this.state.user.id)
+  .then(data => this.setState({ user: { ...this.state.user, polaroids: [...this.state.user.polaroids, data.photo] } }))
+    .catch(errorPromise => {
+      errorPromise
+        .then(data => {
+          this.setState({ errors: data.errors })
+        })
+    })
 }
 
 // updateUser = (event, user) => {
@@ -59,23 +65,6 @@ handlePhotoSave = (photo) => {
 //   .then(this.logOut())
 // }
 
-// handleLoginSignupClicked = () => {
-//   this.setState({loginSignupClicked: true})
-// }
-
-// handleSignupClicked = () => {
-//   this.setState({
-//     signupClicked: true,
-//     loginSignupClicked: false
-//   })
-// }
-
-// componentWillUnmount() {
-//   this.setState({ 
-//     loginSignupClicked: false,
-//     signupClicked: false
-//   })
-// }
 
 render() {
   return (
@@ -97,4 +86,3 @@ render() {
 }
 
 export default withRouter(App);
-// export default App;

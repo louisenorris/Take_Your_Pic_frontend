@@ -82,18 +82,16 @@ const clearToken = () => localStorage.removeItem('token')
 
 const getPolaroids = () => fetch(polaroidsUrl).then(jsonify)
 
-const createPolaroid = (polaroid) => {
+const createPolaroid = (polaroid, userId) => {
+    const formData = new FormData();
+    formData.append('photo', polaroid);
+    formData.append('user_id', userId)
     return fetch(polaroidsUrl, {
      method: 'POST',
-     headers: constructHeaders({
-         'Content-Type': 'application/json'
-     }),
-     body: JSON.stringify({ polaroid })
+     body: formData
  }).then(jsonify) 
  .catch(handleServerError)
  }
-
-
 
 export default {
     signUp,
