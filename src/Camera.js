@@ -17,8 +17,8 @@ class Camera extends React.Component {
       }
 
     state = {
-        photo: ""
-        // chosen_filter: "",
+        photo: "",
+        filterType: ""
     }
 
     // handleChange = (event) => {
@@ -32,9 +32,16 @@ class Camera extends React.Component {
     //   };
     // }
 
+    handleAddFilter = (event) => {
+        debugger
+        console.log(event.target.value)
+        this.setState({ filterType: event.target.value })
+    }
+
     showPhoto = () => {
         this.photoFrame.current.classList.add('show');
         this.canvas.current.classList.add('fade-in');
+
         // filterPhotoInstructions.innerText = 'Watch your polaroid develop, then re-take or save.';
     }
       
@@ -47,6 +54,8 @@ class Camera extends React.Component {
     
     handleShowPhoto = () => {
         const context = this.canvas.current.getContext('2d');
+        !this.state.filterType ? context.filter = "none" : context.filter = this.state.filterType;
+        debugger
         console.log(context)
         context.drawImage(this.video.current, 0, 0, 1440, 780);
         let image = this.canvas.current.toDataURL("image/png");
@@ -77,18 +86,26 @@ class Camera extends React.Component {
                 <div className="filter__div">
                     <p className="filter_instructions">Filters</p>
                     <div className="container__filters">
-                        <div className="filter__sepia">
-                            <span>SEPIA</span>
-                        </div>
-                        <div className="filter__gray_scale">
-                            <span>CHROME</span>
-                        </div>
-                        <div className="filter__hue_rotate">
-                            <span>ALIEN</span>
-                        </div>
-                        <div className="filter__chilling">
-                            <span>INVERSE</span>
-                        </div>
+                        <label>
+                            <input type="radio" value="" checked={this.state.filterType === ""} onChange={this.handleAddFilter}/>
+                            NONE
+                        </label>
+                        <label>
+                            <input type="radio" className="filter__sepia" value="sepia(60%)" checked={this.state.filterType === "sepia(60%)"} onChange={this.handleAddFilter}/>
+                            SEPIA
+                        </label>
+                        <label>
+                            <input type="radio" className="filter__gray_scale" value="grayscale(100%)" checked={this.state.filterType === "grayscale(100%)"} onChange={this.handleAddFilter}/>
+                            CHROME
+                        </label>
+                        <label>
+                            <input type="radio" className="filter__hue_rotate" value="hue-rotate(90deg)" checked={this.state.filterType === "hue-rotate(90deg)"} onChange={this.handleAddFilter}/>
+                            ALIEN
+                        </label>
+                        <label>
+                            <input type="radio" className="filter__chilling" value="invert(75%)" checked={this.state.filterType === "invert(75%)"} onChange={this.handleAddFilter}/>
+                            INVERSE
+                        </label>
                     </div>
                 </div>
                 <div className="camera__container">
