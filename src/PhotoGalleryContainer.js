@@ -8,7 +8,6 @@ class PhotoGalleryContainer extends React.Component {
 	render() {
 		return (
 			<div className="gallery_div">
-				<>
 				<h1>Polaroid gallery</h1>
 				<div className="gallery_container">
 					{ this.props.polaroids ?
@@ -19,7 +18,6 @@ class PhotoGalleryContainer extends React.Component {
                     : null
                 	}
 				</div>
-				</>
 			</div>
 		);
 	}

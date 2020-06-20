@@ -33,7 +33,7 @@ class Camera extends React.Component {
     // }
 
     handleAddFilter = (event) => {
-        debugger
+        // debugger
         console.log(event.target.value)
         this.setState({ filterType: event.target.value })
     }
@@ -55,7 +55,7 @@ class Camera extends React.Component {
     handleShowPhoto = () => {
         const context = this.canvas.current.getContext('2d');
         !this.state.filterType ? context.filter = "none" : context.filter = this.state.filterType;
-        debugger
+        // debugger
         console.log(context)
         context.drawImage(this.video.current, 0, 0, 1440, 780);
         let image = this.canvas.current.toDataURL("image/png");
@@ -88,23 +88,23 @@ class Camera extends React.Component {
                     <div className="container__filters">
                         <label>
                             <input type="radio" value="" checked={this.state.filterType === ""} onChange={this.handleAddFilter}/>
-                            NONE
+                            None
                         </label>
                         <label>
-                            <input type="radio" className="filter__sepia" value="sepia(60%)" checked={this.state.filterType === "sepia(60%)"} onChange={this.handleAddFilter}/>
-                            SEPIA
+                            <input type="radio" value="sepia(60%)" checked={this.state.filterType === "sepia(60%)"} onChange={this.handleAddFilter}/>
+                            Sepia
                         </label>
                         <label>
-                            <input type="radio" className="filter__gray_scale" value="grayscale(100%)" checked={this.state.filterType === "grayscale(100%)"} onChange={this.handleAddFilter}/>
-                            CHROME
+                            <input type="radio" value="grayscale(100%)" checked={this.state.filterType === "grayscale(100%)"} onChange={this.handleAddFilter}/>
+                            Chrome
                         </label>
                         <label>
-                            <input type="radio" className="filter__hue_rotate" value="hue-rotate(90deg)" checked={this.state.filterType === "hue-rotate(90deg)"} onChange={this.handleAddFilter}/>
-                            ALIEN
+                            <input type="radio" value="hue-rotate(90deg)" checked={this.state.filterType === "hue-rotate(90deg)"} onChange={this.handleAddFilter}/>
+                            Alien
                         </label>
                         <label>
-                            <input type="radio" className="filter__chilling" value="invert(75%)" checked={this.state.filterType === "invert(75%)"} onChange={this.handleAddFilter}/>
-                            INVERSE
+                            <input type="radio" value="invert(75%)" checked={this.state.filterType === "invert(75%)"} onChange={this.handleAddFilter}/>
+                            Inverse
                         </label>
                     </div>
                 </div>
