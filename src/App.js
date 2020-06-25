@@ -44,18 +44,17 @@ logOut = () => {
 
 handlePhotoSave = (photo) => {
   API.createPolaroid(photo, this.state.user.id)
-  .then(data => console.log(data, data.photo))
-    
-    // this.setState({ 
-    //     user: { ...this.state.user, polaroids: [...this.state.user.polaroids, data.photo] },
-    //     polaroids: [...this.state.polaroids, data.photo] 
-    //   }))
+  .then(data => this.setState({ 
+    user: { ...this.state.user, polaroids: [...this.state.user.polaroids, data.photo] },
+    polaroids: [...this.state.polaroids, data.photo] 
+  }))
     .catch(errorPromise => {
       errorPromise
         .then(data => {
           this.setState({ errors: data.errors })
         })
-    }).then(this.props.history.push("/"))
+    })
+    // .then(this.props.history.push("/"))
 }
 
 // updateUser = (event, user) => {

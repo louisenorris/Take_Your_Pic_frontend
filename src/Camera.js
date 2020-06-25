@@ -21,19 +21,7 @@ class Camera extends React.Component {
         filterType: ""
     }
 
-    // handleChange = (event) => {
-    //     this.setState({tour_name: event.target.value})
-    // }
-
-    // {for (let i = 0; i < filterBtnsArr.length; i++) {
-    //     filterBtnsArr[i].addEventListener('click', function(event) {
-    //         photo.classList.add(event.target.className)
-    //       });
-    //   };
-    // }
-
     handleAddFilter = (event) => {
-        // debugger
         console.log(event.target.value)
         this.setState({ filterType: event.target.value })
     }
@@ -45,6 +33,10 @@ class Camera extends React.Component {
         // filterPhotoInstructions.innerText = 'Watch your polaroid develop, then re-take or save.';
     }
       
+    hidePhoto = () => {
+        this.photoFrame.current.classList.remove('show');
+        this.canvas.current.classList.remove('fade-in');
+    }
     componentDidMount() {
         // Attach the video stream to the video element and autoPlay.
         navigator.mediaDevices.getUserMedia({video: true })
@@ -72,6 +64,14 @@ class Camera extends React.Component {
         //     blob => onCapture(blob), "image/jpeg", 1);
         // console.log(this.canvas.current.toBlob(blob => onCapture(blob), "image/jpeg", 1))
         this.showPhoto()
+    }
+
+    handleRetake = () => {
+        this.setState({
+            photo: "",
+            filterType: ""
+        })
+        this.hidePhoto()
     }
     
     // componentWillUnmount = () => {
@@ -139,7 +139,7 @@ class Camera extends React.Component {
                     <div className="camera__bottom"></div>
                 </div>
                     <div className="options_btn-container">
-                        <button>Retake</button>
+                        <button onClick={() => this.handleRetake()}>Retake</button>
                         <button onClick={() => this.props.handlePhotoSave(this.state.photo)} >Save</button>
                     </div>
             </div>
