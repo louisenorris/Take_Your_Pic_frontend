@@ -491,10 +491,11 @@
 @keyframes slide-down {
   0% {
       opacity: 0;
-      transform: translateY(-18rem) scaleY(0);
+      transform: translateY(-10rem) scaleY(0);
   }
-  10% {
+  20% {
       opacity: 1;
+      /* transform: translateY(-18rem) scaleY(0); */
   }
   100% {
       opacity: 1;
@@ -583,5 +584,19 @@
   .camera__view-finder {
       height: 4rem;
       width: 3.5rem;
+  }
+
+  @keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-18rem) scaleY(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem) scaleY(1);
+    }
   }
 }

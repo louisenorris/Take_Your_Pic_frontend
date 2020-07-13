@@ -10,7 +10,9 @@ class App extends React.Component {
 
   state = {
     user: undefined,
-    polaroids: []
+    polaroids: [],
+    showGallery: true,
+    showCamera: false
   }
 
   componentDidMount() {
@@ -69,6 +71,16 @@ handlePhotoSave = (photo) => {
 //   .then(this.logOut())
 // }
 
+// renderContent = () => {
+//   if (this.state.user && !this.state.user.error && this.state.showGallery) {
+//     return <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids}/>
+//   } else if (this.state.user && !this.state.user.error && this.state.showCamera) {
+//     return <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
+//   } else {
+
+//   }
+// }
+
 
 render() {
   return (
@@ -76,6 +88,7 @@ render() {
       <div className="navbar_container">
         <Navbar user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} />
       </div>
+        {/* {this.renderContent()} */}
         {
           this.state.user && !this.state.user.error && 
             <Switch>
