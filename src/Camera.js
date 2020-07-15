@@ -81,7 +81,7 @@ class Camera extends React.Component {
     
     render() {
         return (
-            <>
+            <div className="camera_component">
             <div className="camera-filter-options__container">
                 <div className="filter__div">
                     <p className="filter_instructions">Filters</p>
@@ -145,7 +145,7 @@ class Camera extends React.Component {
             </div>
 
             <video className="player" ref={this.video} autoPlay></video>
-            </> 
+            </div> 
         )
     }
 }
