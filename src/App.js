@@ -44,6 +44,14 @@ logOut = () => {
   this.setState({ user: undefined })
 }
 
+// /POLAROID METHODS ///
+
+sortedPolaroids = () => {
+  if (this.state.polaroids) {
+    return this.state.polaroids.reverse()
+  }
+}
+
 handlePhotoSave = (photo) => {
   API.createPolaroid(photo, this.state.user.id)
   .then(data => this.setState({ 
@@ -81,7 +89,7 @@ render() {
           this.state.user && !this.state.user.error && 
             <>
               <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
-              <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids}/>
+              <PhotoGalleryContainer user={this.state.user} polaroids={this.sortedPolaroids()}/>
             </>
             // <Switch>
             //   <Route exact path="/" component={(props) => <PhotoGalleryContainer {...props} user={this.state.user} polaroids={this.state.polaroids}/>}/> 
