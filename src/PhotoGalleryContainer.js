@@ -11,7 +11,7 @@ class PhotoGalleryContainer extends React.Component {
 				<h1>Polaroid gallery</h1>
 				<div className="gallery_container">
 					{ this.props.polaroids ?
-                    this.props.polaroids.map(polaroid => <PhotoCard 
+                    this.props.polaroids.reverse().map(polaroid => <PhotoCard 
                                                     key={polaroid.id} 
                                                     polaroid={polaroid} 
                                                 />)

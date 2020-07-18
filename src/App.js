@@ -46,24 +46,25 @@ logOut = () => {
 
 // /POLAROID METHODS ///
 
-sortedPolaroids = () => {
-  if (this.state.polaroids) {
-    return this.state.polaroids.reverse()
-  }
-}
+// sortedPolaroids = () => {
+//   if (this.state.polaroids) {
+//     return this.state.polaroids.reverse()
+//   }
+// }
 
 handlePhotoSave = (photo) => {
   API.createPolaroid(photo, this.state.user.id)
   .then(data => this.setState({ 
-    user: { ...this.state.user, polaroids: [...this.state.user.polaroids, data.photo] },
-    polaroids: [...this.state.polaroids, data.photo] 
+    polaroids: [...this.state.polaroids, data.polaroid],
+    user: { ...this.state.user, polaroids: [...this.state.user.polaroids, data.polaroid] }
   }))
-    .catch(errorPromise => {
-      errorPromise
-        .then(data => {
-          this.setState({ errors: data.errors })
-        })
-    })
+  // debugger
+    // .catch(errorPromise => {
+    //   errorPromise
+    //     .then(data => {
+    //       this.setState({ errors: data.errors })
+    //     })
+    // })
     // .then(this.props.history.push("/"))
 }
 
@@ -89,7 +90,7 @@ render() {
           this.state.user && !this.state.user.error && 
             <>
               <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
-              <PhotoGalleryContainer user={this.state.user} polaroids={this.sortedPolaroids()}/>
+              <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids}/>
             </>
             // <Switch>
             //   <Route exact path="/" component={(props) => <PhotoGalleryContainer {...props} user={this.state.user} polaroids={this.state.polaroids}/>}/> 
