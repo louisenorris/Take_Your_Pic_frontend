@@ -1,22 +1,21 @@
 import React from "react";
-import PhotoCard from './PhotoCard.js';
+import PhotoGalleryList from './PhotoGalleryList.js';
 
 
 class PhotoGalleryContainer extends React.Component {
+
+
+	sortedPolaroids = (polaroids) => {
+		return this.props.polaroids.sort((a, b) => b.id - a.id)
+	}
 
 
 	render() {
 		return (
 			<div className="gallery_div">
 				<h1>Polaroid gallery</h1>
-				<div className="gallery_container">
-					{ this.props.polaroids ?
-                    this.props.polaroids.reverse().map(polaroid => <PhotoCard 
-                                                    key={polaroid.id} 
-                                                    polaroid={polaroid} 
-                                                />)
-                    : null
-                	}
+				<div className="gallery_List_div">
+					<PhotoGalleryList polaroids={this.sortedPolaroids()} />
 				</div>
 			</div>
 		);

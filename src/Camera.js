@@ -1,11 +1,6 @@
 import React from 'react';
 import './App.css';
 
-// const filterContainer = document.querySelector('.filter__div');
-// const filterPhotoInstructions = document.querySelector('.filter_instructions');
-// const filterBtns = document.querySelectorAll('.container__filters div');
-// const filterBtnsArr = Array.from(filterBtns);
-
 
 class Camera extends React.Component {
     constructor(props) {

@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import Camera from './Camera';
 import API from './adapters/API';
 import PhotoGalleryContainer from './PhotoGalleryContainer';
-// import { Route, withRouter, Switch } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -92,10 +91,6 @@ render() {
               <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
               <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids}/>
             </>
-            // <Switch>
-            //   <Route exact path="/" component={(props) => <PhotoGalleryContainer {...props} user={this.state.user} polaroids={this.state.polaroids}/>}/> 
-            //   <Route exact path="/camera" component={(props) => <Camera {...props} user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>}/> 
-            // </Switch>
         }
     </div>
   );
@@ -104,4 +99,3 @@ render() {
 }
 
 export default App;
-// export default withRouter(App);
