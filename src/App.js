@@ -88,11 +88,7 @@ deletePolaroid = id => {
 // }
 
 showCameraComponent = () => {
-  if (this.state.showCamera) {
-    this.setState({showCamera: false})
-  } else {
-    this.setState({showCamera: true})
-  }
+  this.state.showCamera ? this.setState({showCamera: false}) : this.setState({showCamera: true})
 }
 
 render() {
