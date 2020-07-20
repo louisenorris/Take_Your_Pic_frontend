@@ -11,7 +11,7 @@ class Navbar extends Component {
             return (
             <div className="nav_links-container">
                 <button onClick={this.props.logOut}>log out</button>
-                <button onClick={() => this.props.handleShowCamera()}>hide Camera</button>
+                <button onClick={() => this.props.handleShowCamera()}>hide camera</button>
             </div>
             )
         } else if (this.props.user && !this.props.user.error && !this.props.showCamera) {

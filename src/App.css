@@ -161,7 +161,6 @@
   outline: none;
 }
 
-
 .user_form {
     display: flex;
     align-items: center;
@@ -275,6 +274,20 @@
 .options_btn-container button {
   margin: 1rem;
   width: 4rem;
+  border-radius: 5px;
+  border: solid grey 2px;
+  color: grey;
+}
+
+.options_btn-container button:hover {
+  border: solid white 2px;
+  color: white;
+  background-color: grey;
+}
+
+
+.options_btn-container button:focus {
+  outline: none;
 }
 
 /* lens */
