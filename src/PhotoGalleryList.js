@@ -5,7 +5,6 @@ import PhotoCard from './PhotoCard.js';
 class PhotoGalleryList extends React.Component {
 
 	shouldComponentUpdate(nextProps, nextState) {
-		// debugger
 		return nextProps.polaroids.length > this.props.polaroids.length
 	}
 

@@ -42,7 +42,6 @@ class Camera extends React.Component {
     handleShowPhoto = () => {
         const context = this.canvas.current.getContext('2d');
         !this.state.filterType ? context.filter = "none" : context.filter = this.state.filterType;
-        // debugger
         console.log(context)
         context.drawImage(this.video.current, 0, 0, 1440, 780);
         let image = this.canvas.current.toDataURL("image/png");
@@ -50,14 +49,6 @@ class Camera extends React.Component {
         this.setState({
                     photo: imgSplit
                 })
-        // this.canvas.current.toBlob(function(blob) {
-        //     let url = URL.createObjectURL(blob)
-        //     this.setState({
-        //         photo: url
-        //     })
-        // });
-        //     blob => onCapture(blob), "image/jpeg", 1);
-        // console.log(this.canvas.current.toBlob(blob => onCapture(blob), "image/jpeg", 1))
         this.showPhoto()
     }
 

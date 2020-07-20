@@ -44,12 +44,6 @@ logOut = () => {
 
 // /POLAROID METHODS ///
 
-// sortedPolaroids = () => {
-//   if (this.state.polaroids) {
-//     return this.state.polaroids.reverse()
-//   }
-// }
-
 handlePhotoSave = (photo) => {
   API.createPolaroid(photo, this.state.user.id)
   .then(data => this.setState({ 
