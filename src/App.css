@@ -138,11 +138,29 @@
 
 .nav_links-container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     flex-direction: column;
     margin: 0.25rem;
 }
+
+.nav_links-container button {
+  margin: 0.25rem;
+  border-radius: 5px;
+  border: solid grey 2px;
+  color: grey;
+}
+
+.nav_links-container button:hover {
+  border: solid white 2px;
+  color: white;
+  background-color: grey;
+}
+
+.nav_links-container button:focus {
+  outline: none;
+}
+
 
 .user_form {
     display: flex;
