@@ -15,7 +15,9 @@ class PhotoGalleryList extends React.Component {
 					{ this.props.polaroids ?
                     this.props.polaroids.map(polaroid => <PhotoCard 
                                                     key={polaroid.id} 
-                                                    polaroid={polaroid} 
+													polaroid={polaroid} 
+													user={this.props.user}
+													handleDeletePolaroid={this.props.handleDeletePolaroid}
                                                 />)
                     : null
                 	}

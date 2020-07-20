@@ -421,10 +421,31 @@
 }
 
 .gallery__photo {
-  position: relative;
+  position: absolute;
   height: 9rem;
   width: 6.6rem;
-  bottom: 12px;
+  bottom: 37px;
+}
+
+.photo__delete_btn {
+  position: absolute;
+  margin: 0;
+  height: 1.5rem;
+  width: 3.5rem;
+  bottom: 6px;
+  border-radius: 5px;
+  border: solid grey 2px;
+  color: grey;
+}
+
+.photo__delete_btn:hover {
+  border: solid white 2px;
+  color: white;
+  background-color: grey;
+}
+
+.photo__delete_btn:focus {
+  outline: none;
 }
 
 .player {   

@@ -60,6 +60,11 @@ handlePhotoSave = (photo) => {
     // .then(this.props.history.push("/"))
 }
 
+deletePolaroid = id => {
+  debugger
+  API.deletePolaroid(id)
+}
+
 // updateUser = (event, user) => {
 //   event.preventDefault()
 //   API.updateUser(user)
@@ -90,9 +95,9 @@ render() {
           this.state.user && !this.state.user.error && this.state.showCamera ?
             <>
               <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
-              <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids}/>
+              <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
             </>
-            : <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids}/>
+            : <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
         }
     </div>
   );

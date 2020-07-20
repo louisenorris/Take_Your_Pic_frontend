@@ -15,7 +15,7 @@ class PhotoGalleryContainer extends React.Component {
 			<div className="gallery_div">
 				<h1>Polaroid gallery</h1>
 				<div className="gallery_List_div">
-					<PhotoGalleryList polaroids={this.sortedPolaroids()} />
+					<PhotoGalleryList polaroids={this.sortedPolaroids()} user={this.props.user} handleDeletePolaroid={this.props.handleDeletePolaroid}/>
 				</div>
 			</div>
 		);

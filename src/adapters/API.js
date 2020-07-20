@@ -93,13 +93,23 @@ const createPolaroid = (polaroid, userId) => {
  .catch(handleServerError)
  }
 
+const deletePolaroid = id => {
+  return fetch(polaroidsUrl + `/${id}`, {
+    method: "DELETE",
+    headers: constructHeaders({
+        'Content-Type': 'application/json'
+    }),
+  });
+}
+
 export default {
     signUp,
     logIn,
     validateUser,
     clearToken,
     getPolaroids,
-    createPolaroid
+    createPolaroid,
+    deletePolaroid
     // updateUser,
     // deleteUser
 }
