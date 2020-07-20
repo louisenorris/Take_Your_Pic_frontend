@@ -60,9 +60,19 @@ handlePhotoSave = (photo) => {
     // .then(this.props.history.push("/"))
 }
 
+handleDeletePolaroid = (id) => {
+  const withoutDeletedPolaroid = this.state.polaroids.filter(polaroid => polaroid.id !== id)
+  const userWithoutDeletedPolaroid = this.state.user.polaroids.filter(polaroid => polaroid.id !== id)
+  this.setState({ 
+    polaroids: withoutDeletedPolaroid,
+    user: { ...this.state.user, polaroids: userWithoutDeletedPolaroid }
+  })
+}
+
 deletePolaroid = id => {
-  debugger
   API.deletePolaroid(id)
+  this.handleDeletePolaroid(id)
+
 }
 
 // updateUser = (event, user) => {
