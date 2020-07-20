@@ -60,10 +60,10 @@ class Camera extends React.Component {
         this.hidePhoto()
     }
     
-    // componentWillUnmount = () => {
-    //     // Stop all video streams.
-    //     this.video.current.srcObject.getVideoTracks().forEach(track => track.stop());
-    // }
+    componentWillUnmount = () => {
+        // Stop all video streams.
+        this.video.current.srcObject.getVideoTracks().forEach(track => track.stop());
+    }
     
     render() {
         return (
