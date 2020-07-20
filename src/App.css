@@ -172,9 +172,9 @@
 
 /* camera */
 
-/* .camera_component {
+.camera_component {
   display: block;
-} */
+}
 
 .camera__container {
   display: flex;

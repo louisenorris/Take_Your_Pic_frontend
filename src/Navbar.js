@@ -2,10 +2,38 @@ import React, { Component } from 'react';
 import Login from './Login'
 import Signup from './Signup'
 import EnterApp from './EnterApp';
-import { NavLink } from "react-router-dom";
 import './App.css';
 
 class Navbar extends Component {
+
+    renderContent() {
+        if (this.props.user && !this.props.user.error && this.props.showCamera) {
+            return (
+            <div className="nav_links-container">
+                <button onClick={this.props.logOut}>Log out</button>
+                <button onClick={() => this.props.handleShowCamera()}>Hide Camera</button>
+            </div>
+            )
+        } else if (this.props.user && !this.props.user.error && !this.props.showCamera) {
+            return (
+            <div className="nav_links-container">
+                <button onClick={this.props.logOut}>Log out</button>
+                <button onClick={() => this.props.handleShowCamera()}>Show Camera</button>
+            </div>
+            )
+        } else {
+            return (
+            <>
+                <div className="navbar_subcontainer">
+                    <Login submit={this.props.logIn} header={'Log in'} />
+                </div>
+                <div className="navbar_subcontainer">
+                    <Signup submit={this.props.signUp} header={'Sign up'} />
+                </div>
+            </>
+            )
+        }
+    }
 
     render() {
 
@@ -17,20 +45,7 @@ class Navbar extends Component {
         return (
             <nav className={className}>
                 <EnterApp user={this.props.user} />
-                {
-                    this.props.user && !this.props.user.error ? <div className="nav_links-container">
-                                            <button onClick={this.props.logOut}>Log out</button>
-                                            <NavLink exact to="/camera">Camera</NavLink>
-                                        </div> :
-                        <>
-                            <div className="navbar_subcontainer">
-                                <Login submit={this.props.logIn} header={'Log in'} />
-                            </div>
-                            <div className="navbar_subcontainer">
-                                <Signup submit={this.props.signUp} header={'Sign up'} />
-                            </div>
-                        </>
-                }
+                { this.renderContent() }
             </nav>
         )
     }
