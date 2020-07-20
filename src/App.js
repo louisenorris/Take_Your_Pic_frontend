@@ -91,20 +91,38 @@ showCameraComponent = () => {
   this.state.showCamera ? this.setState({showCamera: false}) : this.setState({showCamera: true})
 }
 
+renderAppContent() {
+  if (this.state.user && !this.state.user.error && this.state.showCamera) {
+    return (
+    <>
+      <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
+      <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
+    </>
+    )
+  } else if (this.state.user && !this.state.user.error && !this.state.showCamera) {
+    return (
+      <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
+    )
+  } else {
+    
+  }
+}
+
 render() {
   return (
     <div className="app">
       <div className="navbar_container">
         <Navbar user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} handleShowCamera={this.showCameraComponent} showCamera={this.state.showCamera}/>
       </div>
-        {
+      { this.renderAppContent() }
+        {/* {
           this.state.user && !this.state.user.error && this.state.showCamera ?
             <>
               <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
               <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
             </>
             : <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
-        }
+        } */}
     </div>
   );
 }

@@ -428,6 +428,7 @@
 }
 
 .photo__delete_btn {
+  display: none;
   position: absolute;
   margin: 0;
   height: 1.5rem;
@@ -436,6 +437,10 @@
   border-radius: 5px;
   border: solid grey 2px;
   color: grey;
+}
+
+.gallery__photo-frame:hover .photo__delete_btn {
+  display: block;
 }
 
 .photo__delete_btn:hover {
