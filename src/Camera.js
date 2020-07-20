@@ -69,9 +69,10 @@ class Camera extends React.Component {
         return (
             <div className="camera_component">
             <div className="camera-filter-options__container">
-                <div className="filter__div">
-                    <p className="filter_instructions">filter select</p>
+                {/* <div className="filter__div"> */}
+                    {/* <p className="filter_instructions">filter select</p> */}
                     <div className="container__filters">
+                        <p className="filter_instructions">filter select</p>
                         <label>
                             <input type="radio" value="" checked={this.state.filterType === ""} onChange={this.handleAddFilter}/>
                             none
@@ -93,7 +94,7 @@ class Camera extends React.Component {
                             inverse
                         </label>
                     </div>
-                </div>
+                {/* </div> */}
                 <div className="camera__container">
                     <div className="camera">
                         <div className="camera__button_container">
