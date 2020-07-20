@@ -10,25 +10,25 @@ class Navbar extends Component {
         if (this.props.user && !this.props.user.error && this.props.showCamera) {
             return (
             <div className="nav_links-container">
-                <button onClick={this.props.logOut}>Log out</button>
-                <button onClick={() => this.props.handleShowCamera()}>Hide Camera</button>
+                <button onClick={this.props.logOut}>log out</button>
+                <button onClick={() => this.props.handleShowCamera()}>hide Camera</button>
             </div>
             )
         } else if (this.props.user && !this.props.user.error && !this.props.showCamera) {
             return (
             <div className="nav_links-container">
-                <button onClick={this.props.logOut}>Log out</button>
-                <button onClick={() => this.props.handleShowCamera()}>Show Camera</button>
+                <button onClick={this.props.logOut}>log out</button>
+                <button onClick={() => this.props.handleShowCamera()}>show camera</button>
             </div>
             )
         } else {
             return (
             <>
                 <div className="navbar_subcontainer">
-                    <Login submit={this.props.logIn} header={'Log in'} />
+                    <Login submit={this.props.logIn} header={'log in'} />
                 </div>
                 <div className="navbar_subcontainer">
-                    <Signup submit={this.props.signUp} header={'Sign up'} />
+                    <Signup submit={this.props.signUp} header={'sign up'} />
                 </div>
             </>
             )

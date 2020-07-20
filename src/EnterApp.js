@@ -11,7 +11,7 @@ const EnterApp = (props) => {
                 <div className="logo-photo-frame-user_active" >
                 <div className="logo-photo-user_active">
                   <span className="photo-message-user_active">
-                    Take Your Pic
+                    take your pic
                   </span>
                 </div>
               </div>

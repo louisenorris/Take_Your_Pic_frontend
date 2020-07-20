@@ -70,27 +70,27 @@ class Camera extends React.Component {
             <div className="camera_component">
             <div className="camera-filter-options__container">
                 <div className="filter__div">
-                    <p className="filter_instructions">Filters</p>
+                    <p className="filter_instructions">filter select</p>
                     <div className="container__filters">
                         <label>
                             <input type="radio" value="" checked={this.state.filterType === ""} onChange={this.handleAddFilter}/>
-                            None
+                            none
                         </label>
                         <label>
                             <input type="radio" value="sepia(60%)" checked={this.state.filterType === "sepia(60%)"} onChange={this.handleAddFilter}/>
-                            Sepia
+                            sepia
                         </label>
                         <label>
                             <input type="radio" value="grayscale(100%)" checked={this.state.filterType === "grayscale(100%)"} onChange={this.handleAddFilter}/>
-                            Chrome
+                            chrome
                         </label>
                         <label>
                             <input type="radio" value="hue-rotate(90deg)" checked={this.state.filterType === "hue-rotate(90deg)"} onChange={this.handleAddFilter}/>
-                            Alien
+                            alien
                         </label>
                         <label>
                             <input type="radio" value="invert(75%)" checked={this.state.filterType === "invert(75%)"} onChange={this.handleAddFilter}/>
-                            Inverse
+                            inverse
                         </label>
                     </div>
                 </div>
@@ -125,8 +125,8 @@ class Camera extends React.Component {
                     <div className="camera__bottom"></div>
                 </div>
                     <div className="options_btn-container">
-                        <button onClick={() => this.handleRetake()}>Retake</button>
-                        <button onClick={() => this.props.handlePhotoSave(this.state.photo)} >Save</button>
+                        <button onClick={() => this.handleRetake()}>retake</button>
+                        <button onClick={() => this.props.handlePhotoSave(this.state.photo)} >save</button>
                     </div>
             </div>
 
