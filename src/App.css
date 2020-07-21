@@ -187,6 +187,10 @@
   animation: 13s fade-in 13s cubic-bezier(0.44, 0.34, 0.82, 0.46) forwards;
 }
 
+.gallery {
+  animation: scale-down-slide-out 8s forwards;
+}
+
 /* camera */
 
 .camera_component {
@@ -532,6 +536,21 @@
   to {
       opacity: 1;
   }
+}
+
+@keyframes scale-down-slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0rem) scale(1);
+  }
+  60% {
+    opacity: 1;
+    /* transform: translateY(0rem) scale(0); */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0rem) scale(0);
+  } 
 }
 
 @keyframes fade-out {

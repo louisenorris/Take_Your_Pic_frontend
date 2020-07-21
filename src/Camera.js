@@ -17,6 +17,12 @@ class Camera extends React.Component {
     }
 
     handleAddFilter = (event) => {
+        if (this.photoFrame.current.classList.contains('gallery')) {
+            this.photoFrame.current.classList.remove('gallery');
+        }
+        if (this.canvas.current.classList.contains('fade-in')) {
+            this.canvas.current.classList.remove('fade-in');
+        }
         console.log(event.target.value)
         this.setState({ filterType: event.target.value })
     }
@@ -24,8 +30,11 @@ class Camera extends React.Component {
     showPhoto = () => {
         this.photoFrame.current.classList.add('show');
         this.canvas.current.classList.add('fade-in');
+    }
 
-        // filterPhotoInstructions.innerText = 'Watch your polaroid develop, then re-take or save.';
+    savePhotoToGallery = () => {
+        this.photoFrame.current.classList.remove('show');
+        this.photoFrame.current.classList.add('gallery');
     }
       
     hidePhoto = () => {
@@ -40,6 +49,12 @@ class Camera extends React.Component {
     }
     
     handleShowPhoto = () => {
+        if (this.photoFrame.current.classList.contains('gallery')) {
+            this.photoFrame.current.classList.remove('gallery');
+        }
+        if (this.canvas.current.classList.contains('fade-in')) {
+            this.canvas.current.classList.remove('fade-in');
+        }
         const context = this.canvas.current.getContext('2d');
         !this.state.filterType ? context.filter = "none" : context.filter = this.state.filterType;
         console.log(context)
@@ -69,7 +84,6 @@ class Camera extends React.Component {
         return (
             <div className="camera_component">
             <div className="camera-filter-options__container">
-                {/* <div className="filter__div"> */}
                     <p className="filter_instructions_resp">filter select</p>
                     <div className="container__filters">
                         <p className="filter_instructions">filter select</p>
@@ -94,7 +108,6 @@ class Camera extends React.Component {
                             inverse
                         </label>
                     </div>
-                {/* </div> */}
                 <div className="camera__container">
                     <div className="camera">
                         <div className="camera__button_container">
@@ -127,7 +140,10 @@ class Camera extends React.Component {
                 </div>
                     <div className="options_btn-container">
                         <button onClick={() => this.handleRetake()}>retake</button>
-                        <button onClick={() => this.props.handlePhotoSave(this.state.photo)} >save</button>
+                        <button onClick={() => {
+                            this.props.handlePhotoSave(this.state.photo);
+                            this.savePhotoToGallery();
+                            }} >save</button>
                     </div>
             </div>
 

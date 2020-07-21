@@ -115,14 +115,6 @@ render() {
         <Navbar user={this.state.user} signUp={this.signUp} logIn={this.logIn} logOut={this.logOut} handleShowCamera={this.showCameraComponent} showCamera={this.state.showCamera}/>
       </div>
       { this.renderAppContent() }
-        {/* {
-          this.state.user && !this.state.user.error && this.state.showCamera ?
-            <>
-              <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
-              <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
-            </>
-            : <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
-        } */}
     </div>
   );
 }
