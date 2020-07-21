@@ -485,13 +485,19 @@
   font-size: 15px;
 }
 
+.filter_instructions_resp {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+}
+
 .container__filters {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   text-align: center;
-  margin: 1rem;
+  margin: 0rem;
 }
 
 .container__filters label {
@@ -631,6 +637,10 @@
   .filter_instructions {
     display: block;
     font-size: 1rem;
+  }
+  
+  .filter_instructions_resp{
+    display: none;
   }
 
   .container__filters {

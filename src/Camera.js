@@ -70,7 +70,7 @@ class Camera extends React.Component {
             <div className="camera_component">
             <div className="camera-filter-options__container">
                 {/* <div className="filter__div"> */}
-                    {/* <p className="filter_instructions">filter select</p> */}
+                    <p className="filter_instructions_resp">filter select</p>
                     <div className="container__filters">
                         <p className="filter_instructions">filter select</p>
                         <label>
