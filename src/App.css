@@ -253,6 +253,16 @@
   margin: 0.4rem;
 }
 
+.camera__bottom_eject_space {
+  background-color: #808080;
+  height: 0.15rem;
+  width: 8.2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 2px 2px;
+}
+
 .camera__bottom {
   background-color: black;
   height: 2rem;
@@ -621,6 +631,12 @@
       width: 15rem;
       transform: translateY(-18rem);
   }
+  
+  .camera__bottom_eject_space {
+    height: 0.25rem;
+    width: 11.5rem;
+  }
+
   .camera__lens {
       height: 5rem;
       width: 5rem;

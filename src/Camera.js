@@ -136,7 +136,9 @@ class Camera extends React.Component {
                         <canvas className="photo" ref={this.canvas} height="768" width="1024"></canvas>
                     </div>
 
-                    <div className="camera__bottom"></div>
+                    <div className="camera__bottom">
+                        <div className="camera__bottom_eject_space"></div>
+                    </div>
                 </div>
                     <div className="options_btn-container">
                         <button onClick={() => this.handleRetake()}>retake</button>
