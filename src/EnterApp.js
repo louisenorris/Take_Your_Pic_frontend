@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.prod.css';
 
 
 const EnterApp = (props) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.prod.css';
 import Navbar from './Navbar';
 import Camera from './Camera';
 import API from './adapters/API';
