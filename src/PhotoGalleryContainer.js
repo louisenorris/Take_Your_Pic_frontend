@@ -14,6 +14,8 @@ class PhotoGalleryContainer extends React.Component {
 		return (
 			<div className="gallery_div">
 				<h1>polaroid gallery</h1>
+				{/* <button onClick={() => this.props.handleFilterPolaroidsByUser()}>Filter by user</button> */}
+				<button>Filter by user</button>
 				<div className="gallery_List_div">
 					<PhotoGalleryList polaroids={this.sortedPolaroids()} user={this.props.user} handleDeletePolaroid={this.props.handleDeletePolaroid}/>
 				</div>
