@@ -429,6 +429,24 @@
   margin: 0.25rem;
 }
 
+.gallery_div_btn {
+  margin: 0.25rem;
+  border-radius: 5px;
+  border: solid grey 2px;
+  color: grey;
+}
+
+.gallery_div_btn:hover {
+  border: solid white 2px;
+  color: white;
+  background-color: grey;
+}
+
+.gallery_div_btn:focus {
+  outline: none;
+}
+
+
 .gallery_container {
   display: flex;
   flex-wrap: wrap;

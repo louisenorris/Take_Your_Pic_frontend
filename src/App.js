@@ -113,12 +113,20 @@ renderAppContent() {
     return (
     <>
       <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
-      <PhotoGalleryContainer user={this.state.user} polaroids={this.filteredPolaroids()} handleDeletePolaroid={this.deletePolaroid} handleUserFilter={this.handleUserFilter}/>
+      <PhotoGalleryContainer  user={this.state.user} 
+                              polaroids={this.filteredPolaroids()} 
+                              handleDeletePolaroid={this.deletePolaroid} 
+                              handleUserFilter={this.handleUserFilter}
+                              userFilter={this.state.userFilter}/>
     </>
     )
   } else if (this.state.user && !this.state.user.error && !this.state.showCamera) {
     return (
-      <PhotoGalleryContainer user={this.state.user} polaroids={this.filteredPolaroids()} handleDeletePolaroid={this.deletePolaroid} handleUserFilter={this.handleUserFilter}/>
+      <PhotoGalleryContainer  user={this.state.user} 
+                              polaroids={this.filteredPolaroids()} 
+                              handleDeletePolaroid={this.deletePolaroid} 
+                              handleUserFilter={this.handleUserFilter}
+                              userFilter={this.state.userFilter}/>
     )
   } else {
     
