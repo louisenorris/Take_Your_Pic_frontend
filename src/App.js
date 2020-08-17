@@ -10,7 +10,8 @@ class App extends React.Component {
   state = {
     user: undefined,
     polaroids: [],
-    showCamera: false
+    showCamera: false,
+    userFilter: false
   }
 
   componentDidMount() {
@@ -87,6 +88,22 @@ deletePolaroid = id => {
 //   .then(this.logOut())
 // }
 
+handleUserFilter = () => {
+  if (this.state.userFilter) {
+    this.setState({userFilter: false})
+  } else {
+    this.setState({userFilter: true})
+  }
+}
+
+filteredPolaroids = () => {
+  if (this.state.userFilter) {
+    return this.state.polaroids.filter(polaroid => polaroid.user_id === this.state.user.id)
+  } else {
+    return this.state.polaroids
+  }
+}
+
 showCameraComponent = () => {
   this.state.showCamera ? this.setState({showCamera: false}) : this.setState({showCamera: true})
 }
@@ -96,12 +113,12 @@ renderAppContent() {
     return (
     <>
       <Camera user={this.state.user} handlePhotoSave={this.handlePhotoSave}/>
-      <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
+      <PhotoGalleryContainer user={this.state.user} polaroids={this.filteredPolaroids()} handleDeletePolaroid={this.deletePolaroid} handleUserFilter={this.handleUserFilter}/>
     </>
     )
   } else if (this.state.user && !this.state.user.error && !this.state.showCamera) {
     return (
-      <PhotoGalleryContainer user={this.state.user} polaroids={this.state.polaroids} handleDeletePolaroid={this.deletePolaroid}/>
+      <PhotoGalleryContainer user={this.state.user} polaroids={this.filteredPolaroids()} handleDeletePolaroid={this.deletePolaroid} handleUserFilter={this.handleUserFilter}/>
     )
   } else {
     
