@@ -184,7 +184,7 @@
 }
 
 .fade-in {
-  animation: 13s fade-in 13s cubic-bezier(0.44, 0.34, 0.82, 0.46) forwards;
+  animation: 13s fade-in 3s cubic-bezier(0.44, 0.34, 0.82, 0.46) forwards;
 }
 
 .gallery {
