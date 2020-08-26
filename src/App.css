@@ -489,6 +489,17 @@
   color: grey;
 }
 
+.photo__date {
+  display: block;
+  position: absolute;
+  margin: 0;
+  height: 1.5rem;
+  width: 3.5rem;
+  bottom: 6px;
+  color: grey;
+  font-size: 7px;
+}
+
 .gallery__photo-frame:hover .photo__delete_btn {
   display: block;
 }
