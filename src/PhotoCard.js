@@ -11,7 +11,7 @@ class PhotoCard extends Component {
                 {
                     this.props.user.id === this.props.polaroid.user_id ? <button className="photo__delete_btn" onClick={() => this.props.handleDeletePolaroid(this.props.polaroid.id)}>delete</button> : null
                 }
-                <h4 className="photo__date">{this.props.polaroid.created_at}</h4>
+                <h4 className="photo__date">{(this.props.polaroid.created_at).slice(0, 10)}</h4>
             </div>
         );
     }
