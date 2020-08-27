@@ -498,10 +498,15 @@
   bottom: 6px;
   color: grey;
   font-size: 7px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .gallery__photo-frame:hover .photo__delete_btn {
   display: block;
+}
+
+.gallery__photo-frame:hover .photo__date {
+  display: none;
 }
 
 .photo__delete_btn:hover {
