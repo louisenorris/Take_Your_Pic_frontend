@@ -506,9 +506,9 @@
   display: block;
 }
 
-.gallery__photo-frame:hover .photo__date {
+/* .gallery__photo-frame:hover .photo__date {
   display: none;
-}
+} */
 
 .photo__delete_btn:hover {
   border: solid white 2px;
