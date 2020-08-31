@@ -502,13 +502,26 @@
   text-align: center;
 }
 
+.photo__date_user_polaroid {
+  display: block;
+  position: absolute;
+  margin: 0;
+  height: 1.5rem;
+  width: 4.5rem;
+  bottom: 4px;
+  color: grey;
+  font-size: 11px;
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+}
+
 .gallery__photo-frame:hover .photo__delete_btn {
   display: block;
 }
 
-/* .gallery__photo-frame:hover .photo__date {
+.gallery__photo-frame:hover .photo__date_user_polaroid {
   display: none;
-} */
+}
 
 .photo__delete_btn:hover {
   border: solid white 2px;
